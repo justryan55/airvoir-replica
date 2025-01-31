@@ -1,0 +1,67 @@
+#root {
+  --background-color--background-primary: var(--base-color-brand--white);
+  --text-color--text-primary: var(--base-color-brand--black);
+  --link-color--link-primary: var(--base-color-brand--black);
+  --border-color--border-primary: var(--base-color-brand--black);
+  --background-color--background-alternate: var(--base-color-brand--black);
+  --text-color--text-alternate: var(--base-color-brand--white);
+  --background-color--background-alternateb: var(
+    --base-color-neutral--neutral-darkest
+  );
+  --base-color-neutral--black\<deleted\|relume-variable-color-neutral-1\>: black;
+  --base-color-neutral--white\<deleted\|relume-variable-color-neutral-2\>: white;
+  --background-color--background-secondary: var(
+    --base-color-neutral--neutral-lightest
+  );
+  --base-color-brand--brand: #0096f7;
+  --border-color--border-secondary: var(--base-color-neutral--neutral-lighter);
+  --base-color-neutral--neutral-light: #a0a0ab;
+  --border-color--border-accent: var(--base-color-brand--brand);
+  --black-archive\<deleted\|variable-dccb7db6\>: black;
+  --link-color--link-alternate: var(--base-color-brand--white);
+  --background-color--background-tertiary: var(
+    --base-color-neutral--neutral-lighter
+  );
+  --text-color--text-secondary: var(--base-color-neutral--neutral);
+  --background-color--background-success: var(
+    --base-color-system--success-green-light
+  );
+  --text-color--text-success: var(--base-color-system--success-green);
+  --background-color--background-error: var(
+    --base-color-system--error-red-light
+  );
+  --text-color--text-error: var(--base-color-system--error-red);
+  --text-color--text-accent: var(--base-color-brand--brand);
+  --base-color-neutral--neutral-lighter: #e4e4e7;
+  --base-color-neutral--neutral-lightest: #f4f4f5;
+  --base-color-brand--white: white;
+  --base-color-brand--black: #18181b;
+  --base-color-neutral--neutral: #70707b;
+  --base-color-neutral--neutral-dark: #51525c;
+  --base-color-neutral--neutral-darker: #3f3f46;
+  --base-color-neutral--neutral-darkest: #26272b;
+  --base-color-system--success-green: #027a48;
+  --base-color-system--success-green-light: #ecfdf3;
+  --base-color-system--error-red: #b42318;
+  --base-color-system--error-red-light: #fef3f2;
+  --background-color--background-accent: var(--base-color-brand--brand);
+  --border-color--border-alternate: var(--base-color-brand--white);
+  --border-color--border-tertiary: var(--base-color-neutral--neutral-dark);
+  --border-color--border-success: var(--base-color-system--success-green);
+  --border-color--border-error: var(--base-color-system--error-red);
+  --link-color--link-secondary: var(--base-color-neutral--neutral-light);
+  --link-color--link-accent: var(--base-color-brand--brand);
+}
+
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/Switzer-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Switzer", sans-serif;
+  padding: 0;
+  margin: 0;
+}
