@@ -8,7 +8,7 @@ import * as THREE from "three";
 
 export default function Experience() {
   return (
-    <div style={{ width: "60vw", height: "100vh" }}>
+    <div style={{ width: "60vw", height: "100vh", zIndex: "10" }}>
       <Canvas
         flat
         linear
