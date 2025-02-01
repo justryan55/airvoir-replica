@@ -133,8 +133,8 @@ const RightList = styled.div`
 `;
 
 export default function Testimonials() {
-  const leftListRef = useRef();
-  const rightListRef = useRef();
+  const leftListRef = useRef<HTMLDivElement>(null);
+  const rightListRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
