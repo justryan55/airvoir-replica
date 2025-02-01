@@ -6,9 +6,9 @@ const NavigationContainer = styled.nav`
   width: 100%;
   padding: 0px 0% 0px 15%;
   background-color: transparent;
-  position: absolute;
+  /* position: absolute;
   top: 100vh;
-  left: 0;
+  left: 0; */
 
   ul {
     display: flex;

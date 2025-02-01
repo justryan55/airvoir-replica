@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Experience from "../components/Experience";
 import Form from "../components/Form";
+import NavBar from "../components/NavBar";
 
 const Layout = styled.div`
   background: linear-gradient(135deg, #343541, #dcdcdc);
@@ -35,6 +36,7 @@ const SubHeader = styled.h2`
 export default function Home() {
   return (
     <Layout>
+      <NavBar />
       <Container>
         <div
           style={{

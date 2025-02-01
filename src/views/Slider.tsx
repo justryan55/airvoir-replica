@@ -8,7 +8,6 @@ const Layout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   overflow: hidden;
 `;
 
@@ -77,7 +76,7 @@ export default function Slider() {
   const firstTextRef = useRef(null);
   const secondTextRef = useRef(null);
   const containerRef = useRef(null);
-  const planeRef = useRef(null);
+  const carRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +84,6 @@ export default function Slider() {
       const scrollPosition =
         ((window.scrollY - offset) / window.innerHeight) * 200;
       setScrollY(scrollPosition);
-      console.log(scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -94,49 +92,35 @@ export default function Slider() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (secondTextRef.current) {
-      gsap.set(secondTextRef.current, { opacity: 0 });
-    }
+    const tl = gsap.timeline();
 
-    gsap.fromTo(
-      planeRef.current,
-      {
-        translateX: -1500,
-      },
-      {
-        translateX: 3000,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top center",
-          end: "+=400",
-          // pin: containerRef.current,
-          scrub: 2,
-          onUpdate: (self) => {
-            const progress = self.progress;
-
-            if (firstTextRef.current) {
-              gsap.to(firstTextRef.current, {
-                opacity: 1 - progress * 3,
-              });
-            }
-
-            if (secondTextRef.current) {
-              gsap.to(secondTextRef.current, {
-                opacity: progress * 2,
-              });
-            }
-          },
-        },
-      }
+    tl.fromTo(carRef.current, { x: -1500 }, { x: 1500, duration: 3 });
+    tl.fromTo(
+      firstTextRef.current,
+      { opacity: 1 },
+      { opacity: 0, delay: -2.5 }
     );
+    tl.fromTo(
+      secondTextRef.current,
+      { opacity: 0 },
+      { opacity: 1, delay: -1.5, duration: 2 }
+    );
+
+    ScrollTrigger.create({
+      animation: tl,
+      trigger: containerRef.current,
+      scrub: true,
+      pin: true,
+      pinSpacing: true,
+    });
   }, []);
 
   return (
-    <Layout>
+    <Layout ref={containerRef}>
       <ImageContainer>
-        <Image src="images/car-top-view.png" ref={planeRef} />
+        <Image src="images/car-top-view.png" ref={carRef} />
       </ImageContainer>
-      <Container ref={containerRef}>
+      <Container>
         <FirstTextContainer>
           <TextContainer ref={firstTextRef}>
             <TextSmall>Welcome to FlexiRent</TextSmall>
@@ -157,125 +141,3 @@ export default function Slider() {
     </Layout>
   );
 }
-
-// useEffect(() => {
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   gsap.fromTo(
-//     containerRef.current,
-//     { opacity: 1 },
-//     {
-//       opacity: 0,
-//       duration: 1,
-//       stagger: 0.15,
-//       ease: "power1.out",
-//       scrollTrigger: {
-//         trigger: containerRef.current,
-//         pin: false,
-//         pinSpacing: true,
-//         start: "bottom 10%",
-//         scrub: 1,
-//         markers: true,
-//       },
-//     }
-//   );
-
-//   gsap.fromTo(
-//     firstTextRef.current,
-//     { opacity: 1 },
-//     {
-//       opacity: 0,
-//       duration: 1,
-//       stagger: 0.15,
-//       ease: "power1.out",
-//       scrollTrigger: {
-//         trigger: firstTextRef.current,
-//         pin: false,
-//         pinSpacing: true,
-//         start: "top 40%",
-//         end: "bottom 80%",
-//         scrub: 1,
-//       },
-//     }
-//   );
-
-//   gsap.fromTo(
-//     secondTextRef.current,
-//     { opacity: 0 },
-//     {
-//       opacity: 1,
-//       duration: 1,
-//       stagger: 0.15,
-//       ease: "power1.out",
-//       scrollTrigger: {
-//         trigger: secondTextRef.current,
-//         pin: false,
-//         pinSpacing: true,
-//         start: "top 30%",
-//         end: "bottom 80%",
-//         scrub: 1,
-//       },
-//     }
-//   );
-// }, []);
-
-// useEffect(() => {
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   const tl = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: containerRef.current,
-//       start: "top center",
-//       end: "bottom top",
-//       // pin: true,
-//       // pinSpacing: true,
-//       scrub: 1,
-//       markers: true,
-//     },
-//   });
-
-//   tl.fromTo(
-//     firstTextRef.current,
-//     { opacity: 1 },
-//     {
-//       opacity: 0,
-//       duration: 1,
-//       stagger: 0.15,
-//       ease: "power1.out",
-//     }
-//   );
-
-//   tl.fromTo(
-//     secondTextRef.current,
-//     { opacity: 0 },
-//     {
-//       opacity: 1,
-//       duration: 1,
-//       stagger: 0.15,
-//       ease: "power1.out",
-//     },
-//     "<"
-//   );
-
-//   const animation = gsap.fromTo(
-//     planeRef.current,
-//     { translateX: -1500 },
-//     {
-//       translateX: 3000,
-//       duration: 5,
-//       stagger: 0.15,
-//       ease: "power1.out",
-//       scrollTrigger: {
-//         trigger: containerRef.current,
-//         // pin: true,
-//         // pinSpacing: true,
-//         start: "top center",
-//         end: "bottom top",
-//         scrub: true,
-//         // markers: true,
-//       },
-//     }
-//   );
-
-//   tl.to({}, { duration: 2 });
-// }, []);

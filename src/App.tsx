@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import Home from "./views/Home";
 import Benefits from "./views/Benefits";
 import Steps from "./views/Steps";
@@ -19,7 +18,6 @@ function App() {
     <>
       <Layout>
         <Slider />
-        <NavBar />
         <Home />
         <Benefits />
         <Steps />
