@@ -135,7 +135,6 @@ export default function Steps() {
 
   useEffect(() => {
     if (counterRef.current) {
-      const numbers = counterRef.current.children;
       gsap
         .timeline({
           scrollTrigger: {
@@ -146,9 +145,7 @@ export default function Steps() {
             // markers: true,
           },
         })
-        .to(numbers[0], { y: "-100%", duration: 1 })
-        .to(numbers[1], { y: "-100%", duration: 1 })
-        .to(numbers[2], { y: "-100%", duration: 1 });
+        .to(counterRef.current, { y: "-500px", duration: 3 });
     }
   }, []);
   return (
