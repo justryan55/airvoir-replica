@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import Testimonial from "../components/Testimonial";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Section = styled.section`
   position: relative;
@@ -130,6 +133,46 @@ const RightList = styled.div`
 `;
 
 export default function Testimonials() {
+  const leftListRef = useRef();
+  const rightListRef = useRef();
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (leftListRef.current) {
+      gsap.fromTo(
+        leftListRef.current,
+        { y: 0 },
+        {
+          y: -250,
+          duration: 5,
+          scrollTrigger: {
+            scrub: true,
+            markers: true,
+            start: "center center",
+            end: "bottom top",
+          },
+        }
+      );
+    }
+
+    if (rightListRef.current) {
+      gsap.fromTo(
+        rightListRef.current,
+        { y: 0 },
+        {
+          y: 250,
+          duration: 5,
+          scrollTrigger: {
+            scrub: true,
+            markers: true,
+            start: "center center",
+            end: "bottom top",
+          },
+        }
+      );
+    }
+  }, []);
   return (
     <Section>
       <Container>
@@ -146,7 +189,7 @@ export default function Testimonials() {
               </div>
             </LeftContent>
             <RightContent>
-              <LeftList>
+              <LeftList ref={leftListRef}>
                 <Testimonial
                   text="Outstanding service! The FlexiRent team went above and beyond, making the car rental process smooth and flexible even with my last-minute request. The car was pristine, comfortable, and the entire experience was seamless. I truly appreciated the professionalism and efficiency from start to finish. It saved me so much time and hassle, and I’ll definitely be using FlexiRent again!"
                   image="https://cdn.prod.website-files.com/661fdce3e735db03332bf817/6643167987cd9b7f450ddb1a_Testimonial%204.webp"
@@ -166,7 +209,7 @@ export default function Testimonials() {
                   location="Founder, Wellness Clinic"
                 />
               </LeftList>
-              <RightList>
+              <RightList ref={rightListRef}>
                 <Testimonial
                   text="FlexiRent provided an excellent experience. The customer service was responsive and accommodated my schedule perfectly. The car was just what I needed, and the whole process was smooth. I highly recommend their service!"
                   image="https://cdn.prod.website-files.com/661fdce3e735db03332bf817/6643167968f40127d58ea339_Testimonial%205.webp"
