@@ -165,7 +165,7 @@ export default function Testimonials() {
           duration: 5,
           scrollTrigger: {
             scrub: true,
-            markers: true,
+            // markers: true,
             start: "center center",
             end: "bottom top",
           },
