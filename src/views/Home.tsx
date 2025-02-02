@@ -5,6 +5,10 @@ const Section = styled.section`
   position: relative;
   inset: 0% 0% auto;
   height: 100vh;
+
+  @media screen and (max-width: 979px) {
+    height: 100%;
+  }
 `;
 
 const BackgroundContainer = styled.div`

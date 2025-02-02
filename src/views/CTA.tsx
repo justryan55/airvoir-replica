@@ -13,6 +13,10 @@ const Section = styled.section`
   background-position: 50% 100%;
   background-size: cover;
   position: relative;
+
+  @media screen and (max-width: 979px) {
+    /* margin-top: 200px; */
+  }
 `;
 
 const Gradient = styled.div`
@@ -58,6 +62,7 @@ const TextLarge = styled.h1`
   @media screen and (max-width: 979px) {
     letter-spacing: -2px;
     font-size: 2.5rem;
+    padding: 0px 5px 0px 5px;
   }
 `;
 

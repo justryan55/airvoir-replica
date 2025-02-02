@@ -14,7 +14,7 @@ const Layout = styled.div`
   @media screen and (max-width: 979px) {
     grid-template-columns: 1fr;
     padding: 0px 5% 50px 5%;
-    height: 70vh;
+    height: 100%;
   }
 `;
 
