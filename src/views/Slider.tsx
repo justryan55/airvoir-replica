@@ -32,6 +32,10 @@ const TextSmall = styled.h3`
   line-height: 1.4;
   margin: 0;
   padding: 0;
+
+  @media screen and (max-width: 979px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const TextMedium = styled.h2`
@@ -39,6 +43,13 @@ const TextMedium = styled.h2`
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.2;
+  text-align: center;
+
+  @media screen and (max-width: 979px) {
+    letter-spacing: -1px;
+    font-size: 1.75rem;
+    padding: 0px 5px 0px 5px;
+  }
 `;
 
 const TextLarge = styled.h1`
@@ -48,6 +59,12 @@ const TextLarge = styled.h1`
   line-height: 1.1;
   margin: 0;
   padding: 0;
+
+  @media screen and (max-width: 979px) {
+    text-align: center;
+    font-size: 2.25rem;
+    padding: 0px 10px 0px 10px;
+  }
 `;
 
 const FirstTextContainer = styled.div`
@@ -68,7 +85,16 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   position: relative;
   z-index: 1000;
-  height: 90%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  inset: 0%;
+
+  @media screen and (max-width: 979px) {
+    width: 300%;
+    height: 300%;
+  }
 `;
 
 export default function Slider() {
@@ -94,7 +120,7 @@ export default function Slider() {
 
     const tl = gsap.timeline();
 
-    tl.fromTo(carRef.current, { x: -1500 }, { x: 1500, duration: 3 });
+    tl.fromTo(carRef.current, { x: -2000 }, { x: 2000, duration: 3 });
     tl.fromTo(
       firstTextRef.current,
       { opacity: 1 },
@@ -118,22 +144,20 @@ export default function Slider() {
   return (
     <Layout ref={containerRef}>
       <ImageContainer>
-        <Image src="images/car-top-view.png" ref={carRef} />
+        <Image src="images/plane-top-view.webp" ref={carRef} />
       </ImageContainer>
       <Container>
         <FirstTextContainer>
           <TextContainer ref={firstTextRef}>
-            <TextSmall>Welcome to FlexiRent</TextSmall>
-            <TextLarge>
-              Where every trip is turned into a lasting memory
-            </TextLarge>
+            <TextSmall>Welcome to Airvoir</TextSmall>
+            <TextLarge>Where journeys become unforgettable</TextLarge>
           </TextContainer>
         </FirstTextContainer>
         <SecondTextContainer>
           <TextContainer ref={secondTextRef}>
             <TextMedium>
-              Discover car rental reimagined. Enjoy personalized service at
-              every turn
+              Discover corporate air travel redefined. Experience personalized
+              service, every step of the way
             </TextMedium>
           </TextContainer>
         </SecondTextContainer>

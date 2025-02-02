@@ -33,6 +33,10 @@ const Grid = styled.div`
   align-items: start;
   display: grid;
   position: relative;
+
+  @media screen and (max-width: 979px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const LeftContent = styled.div`
@@ -42,6 +46,10 @@ const LeftContent = styled.div`
   position: sticky;
   top: 20%;
   overflow: hidden;
+
+  @media screen and (max-width: 979px) {
+    display: none;
+  }
 `;
 
 const Zero = styled.div`
@@ -70,6 +78,10 @@ const RightContent = styled.div`
   grid-template-columns: 1fr;
   grid-auto-columns: 1fr;
   display: grid;
+
+  @media screen and (max-width: 979px) {
+    grid-row-gap: 50px;
+  }
 `;
 
 const RightSubContent = styled.div`
@@ -81,6 +93,11 @@ const RightSubContent = styled.div`
 
 const SemiboldText = styled.p`
   font-weight: 600;
+
+  @media screen and (max-width: 979px) {
+    font-size: 2rem;
+    margin: 0px 0px 0px 10px;
+  }
 `;
 
 const SpacerSmall = styled.div`
@@ -95,6 +112,12 @@ const Header = styled.h2`
   line-height: 1.1;
   margin-top: 0;
   margin-bottom: 0;
+
+  @media screen and (max-width: 979px) {
+    letter-spacing: -1.5px;
+    font-size: 2rem;
+    margin: 0px 10px 0px 10px;
+  }
 `;
 
 const Text = styled.p`
@@ -102,6 +125,11 @@ const Text = styled.p`
   font-weight: 500;
   margin-bottom: 0;
   margin-top: 0;
+
+  @media screen and (max-width: 979px) {
+    font-size: 1rem;
+    padding: 0px 10px 0px 10px;
+  }
 `;
 
 const SpacerBig = styled.div`
@@ -115,6 +143,10 @@ const ButtonContainer = styled.div`
   flex-wrap: wrap;
   align-items: center;
   display: flex;
+
+  @media screen and (max-width: 979px) {
+    margin: 0px 0px 0px 10px;
+  }
 `;
 
 const Button = styled.a`
@@ -165,13 +197,13 @@ export default function Steps() {
               <RightSubContent>
                 <SemiboldText>Step 1</SemiboldText>
                 <SpacerSmall />
-                <Header>Choose your car & confirm your booking.</Header>
+                <Header>Configure your flight & expect a follow-up.</Header>
                 <SpacerSmall />
                 <Text>
-                  Select your desired car model, pick-up location, and rental
-                  dates from our extensive range of vehicles. Submit your
-                  booking request, and our team will confirm availability and
-                  provide you with the best options based on your preferences.
+                  Select your desired destination and departure dates from our
+                  extensive list of available airports and submit your options
+                  request. Our industry experts will scan the market and it’s
+                  current dynamics and negotiate the best options.
                 </Text>
                 <ButtonContainer>
                   <Button>Book today</Button>
@@ -180,25 +212,25 @@ export default function Steps() {
               <RightSubContent>
                 <SemiboldText>Step 2</SemiboldText>
                 <SpacerSmall />
-                <Header>Review your options and select the best fit.</Header>
+                <Header>Choose the best option for your needs.</Header>
                 <SpacerSmall />
                 <Text>
-                  After reviewing the available cars, confirm the option that
-                  best fits your needs. Our team will send you the rental
-                  agreement and an invoice to finalize your booking and secure
-                  the vehicle for your dates.
+                  Upon receiving an exhaustive list of the best negotiated jet
+                  charter options, you may confirm your desired option with our
+                  dedicated advisor to receive the jet charter contract and
+                  customer invoice to lock-in your flight.
                 </Text>
               </RightSubContent>
               <RightSubContent>
                 <SemiboldText>Step 3</SemiboldText>
                 <SpacerSmall />
-                <Header>Pick-up and enjoy your ride!</Header>
+                <Header>Flight Confirmation.</Header>
                 <SpacerSmall />
                 <Text>
-                  Once your booking is confirmed, you can pick up your car at
-                  the designated location. Our team will ensure the car is ready
-                  and fully equipped, so you can enjoy a smooth and hassle-free
-                  driving experience.
+                  Upon signing the jet charter contract and clearing the charter
+                  invoice, we prepare the desired aircraft for your itinerary
+                  and make all necessary arrangements to have crew and catering
+                  ready to suite your schedule.
                 </Text>
               </RightSubContent>
             </RightContent>

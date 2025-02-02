@@ -40,6 +40,10 @@ const Grid = styled.div`
   align-items: stretch;
   height: 75vh;
   display: grid;
+
+  @media screen and (max-width: 979px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const LeftContent = styled.div`
@@ -59,6 +63,12 @@ const RightContent = styled.div`
   display: grid;
   overflow: hidden;
   gap: 5rem;
+
+  @media screen and (max-width: 979px) {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
 `;
 
 const Header = styled.h1`
@@ -68,6 +78,10 @@ const Header = styled.h1`
   line-height: 1;
   margin-bottom: 0;
   margin-top: 0;
+
+  @media screen and (max-width: 979px) {
+    font-size: 2.5rem;
+  }
 `;
 
 const SpacerSmall = styled.div`
@@ -75,12 +89,20 @@ const SpacerSmall = styled.div`
   padding-top: 1.5rem;
   margin-bottom: 0;
   margin-top: 0;
+
+  @media screen and (max-width: 979px) {
+    padding-top: 1.25rem;
+  }
 `;
 
 const Text = styled.p`
   font-size: 1.125rem;
   margin-bottom: 0;
   margin-top: 0;
+
+  @media screen and (max-width: 979px) {
+    font-size: 1rem;
+  }
 `;
 
 const ButtonGroup = styled.div`
@@ -89,10 +111,13 @@ const ButtonGroup = styled.div`
   flex-wrap: wrap;
   align-items: center;
   display: flex;
+
+  @media screen and (max-width: 979px) {
+    padding-top: 1.25rem;
+  }
 `;
 
 const Button = styled.a`
-  padding: 0.5rem 1.25rem;
   color: var(--base-color-neutral--black);
   background-color: #0000;
   transition: background-color 0.4s;
@@ -105,6 +130,10 @@ const Button = styled.a`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 979px) {
+    font-size: 0.8rem;
   }
 `;
 
@@ -119,6 +148,10 @@ const LeftList = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
+
+  @media screen and (max-width: 979px) {
+    display: none;
+  }
 `;
 
 const RightList = styled.div`
@@ -130,6 +163,13 @@ const RightList = styled.div`
   /* height: 100%; */
   display: grid;
   gap: 20px;
+
+  @media screen and (max-width: 979px) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 
 export default function Testimonials() {
@@ -139,38 +179,40 @@ export default function Testimonials() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    if (leftListRef.current) {
-      gsap.fromTo(
-        leftListRef.current,
-        { y: 0 },
-        {
-          y: -250,
-          duration: 5,
-          scrollTrigger: {
-            scrub: true,
-            // markers: true,
-            start: "center center",
-            end: "bottom top",
-          },
-        }
-      );
-    }
+    if (window.innerWidth > 768) {
+      if (leftListRef.current) {
+        gsap.fromTo(
+          leftListRef.current,
+          { y: 0 },
+          {
+            y: -200,
+            duration: 5,
+            scrollTrigger: {
+              scrub: true,
+              // markers: true,
+              start: "center center",
+              end: "bottom top",
+            },
+          }
+        );
+      }
 
-    if (rightListRef.current) {
-      gsap.fromTo(
-        rightListRef.current,
-        { y: 0 },
-        {
-          y: 250,
-          duration: 5,
-          scrollTrigger: {
-            scrub: true,
-            // markers: true,
-            start: "center center",
-            end: "bottom top",
-          },
-        }
-      );
+      if (rightListRef.current) {
+        gsap.fromTo(
+          rightListRef.current,
+          { y: 0 },
+          {
+            y: 200,
+            duration: 5,
+            scrollTrigger: {
+              scrub: true,
+              // markers: true,
+              start: "center center",
+              end: "bottom top",
+            },
+          }
+        );
+      }
     }
   }, []);
   return (
@@ -180,53 +222,53 @@ export default function Testimonials() {
           <Grid>
             <LeftContent>
               <div>
-                <Header>FlexiRent Customers</Header>
+                <Header>Airvoir Customers</Header>
                 <SpacerSmall />
                 <Text>Read what our clients have to say about us.</Text>
                 <ButtonGroup>
-                  <Button>Book today</Button>
+                  <Button>Follow us on LinkedIn</Button>
                 </ButtonGroup>
               </div>
             </LeftContent>
             <RightContent>
               <LeftList ref={leftListRef}>
                 <Testimonial
-                  text="Outstanding service! The FlexiRent team went above and beyond, making the car rental process smooth and flexible even with my last-minute request. The car was pristine, comfortable, and the entire experience was seamless. I truly appreciated the professionalism and efficiency from start to finish. It saved me so much time and hassle, and I’ll definitely be using FlexiRent again!"
+                  text="Excellent services! The Airvoir team were very kind, the flight advisor being flexible and prompt even if my schedule is quite busy, which I have surprised The flight was fast, comfortable, stress free and I appreciate the professionalism and efficiency of all personnel. All in all, a wonderful, life saving experience a lot of time and energy. I highly recommend them and will definitely be back!"
                   image="https://cdn.prod.website-files.com/661fdce3e735db03332bf817/6643167987cd9b7f450ddb1a_Testimonial%204.webp"
-                  name="Rachel Adams"
-                  location="Founder, Bright Future Solutions"
+                  name="Simona Mirea"
+                  location="Founder Hearth Agency"
                 />
                 <Testimonial
-                  text="FlexiRent made my business trip stress-free and enjoyable. The service was exceptional, with personalized attention and a luxury car that made my travel experience unforgettable. I highly recommend them!"
+                  text="Airvoir turned my business trip into a seamless and luxurious experience. Impeccable service, personalized attention, and truly a world-class flight. Highly recommend!"
                   image="https://cdn.prod.website-files.com/661fdce3e735db03332bf817/6643167acde6be3c583c89e0_Testimonial%201.webp"
-                  name="Ethan Morgan"
-                  location="CEO, InnovateTech"
+                  name="Paul Burca"
+                  location="Founder, Assista.us"
                 />
                 <Testimonial
-                  text="I had a fantastic experience with FlexiRent! The service was top-notch, and the car was both luxurious and reliable. They made my trip comfortable and smooth. I’ll definitely rent from them again."
+                  text="Great experience with Airvoir! Excellent service and luxurious travel experience. Thanks for making my trip exceptionally pleasant and smooth exceptionally smooth."
                   image="https://cdn.prod.website-files.com/661fdce3e735db03332bf817/6643167acde6be3c583c89e0_Testimonial%201.webp"
-                  name="Dr. Olivia Miles"
-                  location="Founder, Wellness Clinic"
+                  name="Dr. Salim Azar"
+                  location="Dr Azar Clinic"
                 />
               </LeftList>
               <RightList ref={rightListRef}>
                 <Testimonial
-                  text="FlexiRent provided an excellent experience. The customer service was responsive and accommodated my schedule perfectly. The car was just what I needed, and the whole process was smooth. I highly recommend their service!"
+                  text="“My experience with Airvoir was excellent. The charter advisor was very attentive and flexible to my schedule. The trip went smoothly and without stress. I can use Airvoir for private jet charter only recommend!"
                   image="https://cdn.prod.website-files.com/661fdce3e735db03332bf817/6643167968f40127d58ea339_Testimonial%205.webp"
-                  name="Liam Foster"
-                  location="Professional Athlete"
+                  name="Marius Copil"
+                  location="Professional Tennis Player"
                 />
                 <Testimonial
-                  text="The car was perfect, and the service was seamless. All the staff were courteous and efficient, making for an excellent experience. Thank you for making my trip effortless and enjoyable!"
+                  text="The flight and service went very smoothly, all the staff were very pleasant and professional. Thank you for an amazing vacation!"
                   image="https://cdn.prod.website-files.com/661fdce3e735db03332bf817/6643167acde6be3c583c89a5_Testimonial%202.webp"
-                  name="Sophia Green"
-                  location="Operations Manager, TechLink"
+                  name="Leila Lina"
+                  location="Manager, Avallonis LLC"
                 />
                 <Testimonial
-                  text="Even with my last-minute booking, FlexiRent handled everything with exceptional service and attention to detail. Their dedication to customer satisfaction made all the difference. Highly recommended!"
+                  text="“My experience with Airvoir has been exceptional. Despite having contacted them at the last minute, they have fulfilled all my requests. Attention to detail what they have is exactly what you would like to have, au revoir!”"
                   image="https://cdn.prod.website-files.com/661fdce3e735db03332bf817/6643167b42dcd47f12c7704a_Testimonial%203.webp"
-                  name="Lucas Fischer"
-                  location="Head of Development, Swiss Enterprises"
+                  name="Xavier Werren"
+                  location="Head Coordinator, Swiss Academics"
                 />
               </RightList>
             </RightContent>

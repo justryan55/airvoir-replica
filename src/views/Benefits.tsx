@@ -9,8 +9,14 @@ const Layout = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 200vh;
-  padding: 0px 15% 0px 15%;
+  height: 100%;
+  padding: 0px 15% 5em 15%;
+  background-color: #f4f4f5;
+
+  @media screen and (max-width: 979px) {
+    margin-top: 100px;
+    padding: 0;
+  }
 `;
 
 const Container = styled.div`
@@ -20,6 +26,14 @@ const Container = styled.div`
   align-items: center;
   position: relative;
   width: 60%;
+
+  @media screen and (max-width: 979px) {
+    width: 80%;
+  }
+`;
+
+const SemiboldText = styled.p`
+  font-weight: 600;
 `;
 
 const Text = styled.h1`
@@ -28,6 +42,11 @@ const Text = styled.h1`
   font-weight: 600;
   line-height: 1.1;
   will-change: transform;
+
+  @media screen and (max-width: 979px) {
+    letter-spacing: -1.5px;
+    font-size: 2rem;
+  }
 `;
 
 const Features = styled.div`
@@ -35,6 +54,10 @@ const Features = styled.div`
   grid-template-columns: 1fr 1fr;
   will-change: transform;
   column-gap: 50px;
+
+  @media screen and (max-width: 979px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Feature = styled.div`
@@ -48,10 +71,14 @@ const Feature = styled.div`
   padding-top: 1rem;
   display: flex;
   will-change: transform;
-`;
 
-const SemiboldText = styled.p`
-  font-weight: 600;
+  @media screen and (max-width: 979px) {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.75em;
+    padding: 20px 10px 0px 10px;
+  }
 `;
 
 export default function Benefits() {
@@ -119,9 +146,10 @@ export default function Benefits() {
     <Layout>
       <Container>
         <Text ref={textRef}>
-          Experience a new standard in car rentals, tailored to your every need.
-          With a focus on innovation, we provide personalized service that takes
-          your driving experience to exceptional levels.
+          Indulge in a transformative approach to private aviation, where the
+          experience is tailored to your needs. Our unwavering commitment to
+          innovation fuels personalized service that elevates your travel
+          experience beyond expectation.
         </Text>
       </Container>
       <Features>
@@ -143,9 +171,7 @@ export default function Benefits() {
               ></path>
             </g>
           </svg>
-          <SemiboldText>
-            Absolute privacy and security, always guaranteed
-          </SemiboldText>
+          <SemiboldText>Absolute privacy and security</SemiboldText>
         </Feature>
         <Feature ref={(el) => (featuresRef.current[1] = el)}>
           <svg
@@ -174,7 +200,7 @@ export default function Benefits() {
             </g>
           </svg>
           <SemiboldText>
-            Flexible rentals and last-minute bookings available
+            Scheduling flexibility & last minute flight management
           </SemiboldText>
         </Feature>
         <Feature ref={(el) => (featuresRef.current[2] = el)}>
@@ -202,7 +228,9 @@ export default function Benefits() {
               ></path>
             </g>
           </svg>
-          <SemiboldText>Access a global fleet of vehicles</SemiboldText>
+          <SemiboldText>
+            Access to 40,000 airports+ across the globe
+          </SemiboldText>
         </Feature>
         <Feature ref={(el) => (featuresRef.current[3] = el)}>
           <svg
@@ -229,62 +257,8 @@ export default function Benefits() {
               ></path>
             </g>
           </svg>
-          <SemiboldText>Wide selection, from luxury to economy</SemiboldText>
-        </Feature>
-        <Feature ref={(el) => (featuresRef.current[4] = el)}>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask
-              id="mask0_10234_365"
-              maskUnits="userSpaceOnUse"
-              x="0"
-              y="0"
-              width="24"
-              height="24"
-            >
-              <rect width="24" height="24" fill="#D9D9D9"></rect>
-            </mask>
-            <g mask="url(#mask0_10234_365)">
-              <path
-                d="M9.2 8.25H14.8L12.15 3H11.85L9.2 8.25ZM11.25 20.1V9.75H2.625L11.25 20.1ZM12.75 20.1L21.375 9.75H12.75V20.1ZM16.45 8.25H21.625L19.55 4.1C19.3667 3.76667 19.1208 3.5 18.8125 3.3C18.5042 3.1 18.1583 3 17.775 3H13.85L16.45 8.25ZM2.375 8.25H7.55L10.15 3H6.225C5.84167 3 5.49583 3.1 5.1875 3.3C4.87917 3.5 4.63333 3.76667 4.45 4.1L2.375 8.25Z"
-                fill="#1C1B1F"
-              ></path>
-            </g>
-          </svg>
-          <SemiboldText>Rent daily or long-term, your choice</SemiboldText>
-        </Feature>
-        <Feature ref={(el) => (featuresRef.current[5] = el)}>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <mask
-              id="mask0_10234_365"
-              maskUnits="userSpaceOnUse"
-              x="0"
-              y="0"
-              width="24"
-              height="24"
-            >
-              <rect width="24" height="24" fill="#D9D9D9"></rect>
-            </mask>
-            <g mask="url(#mask0_10234_365)">
-              <path
-                d="M9.2 8.25H14.8L12.15 3H11.85L9.2 8.25ZM11.25 20.1V9.75H2.625L11.25 20.1ZM12.75 20.1L21.375 9.75H12.75V20.1ZM16.45 8.25H21.625L19.55 4.1C19.3667 3.76667 19.1208 3.5 18.8125 3.3C18.5042 3.1 18.1583 3 17.775 3H13.85L16.45 8.25ZM2.375 8.25H7.55L10.15 3H6.225C5.84167 3 5.49583 3.1 5.1875 3.3C4.87917 3.5 4.63333 3.76667 4.45 4.1L2.375 8.25Z"
-                fill="#1C1B1F"
-              ></path>
-            </g>
-          </svg>
           <SemiboldText>
-            Clean, well-maintained cars for every journey
+            Access to thousands of aircraft with best positioning
           </SemiboldText>
         </Feature>
       </Features>

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Faq from "react-faq-component";
+import { useEffect, useState } from "react";
 
 const Layout = styled.div`
   display: grid;
@@ -9,6 +10,12 @@ const Layout = styled.div`
   align-items: center;
   height: 100vh;
   padding: 0px 15% 0px 15%;
+
+  @media screen and (max-width: 979px) {
+    grid-template-columns: 1fr;
+    padding: 0px 5% 50px 5%;
+    height: 70vh;
+  }
 `;
 
 const TextLarge = styled.h1`
@@ -18,6 +25,11 @@ const TextLarge = styled.h1`
   line-height: 1;
   padding-bottom: 0;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 979px) {
+    letter-spacing: -2px;
+    font-size: 2rem;
+  }
 `;
 
 const TextSmall = styled.h3`
@@ -25,76 +37,94 @@ const TextSmall = styled.h3`
   font-weight: 500;
   padding-top: 0;
   margin-top: 0;
+
+  @media screen and (max-width: 979px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const data = {
   rows: [
     {
-      title: "How far in advance should I book a rental car?",
+      title: "How far in advance do I need to book a private jet?",
       content: (
         <p>
-          We offer flexible booking options to suit your needs. While booking at
-          least a few days in advance is recommended to secure your preferred
-          vehicle, we can accommodate last-minute reservations based on
-          availability. For urgent bookings, feel free to contact us directly.
-        </p>
-      ),
-    },
-    {
-      title: "What’s included with my car rental?",
-      content: (
-        <p>
-          Our rentals come with a range of features, including unlimited
-          mileage, GPS navigation, and premium insurance options. We also
-          provide optional extras like child seats, Wi-Fi, and 24/7 roadside
-          assistance to ensure your journey is smooth and stress-free.
-        </p>
-      ),
-    },
-    {
-      title: "Can I bring my pet in the rental car?",
-      content: (
-        <p>
-          Yes, we understand that pets are family too. You can bring your furry
-          companions along in your rental car. Please notify us in advance to
-          ensure your vehicle is prepared for a comfortable journey with your
-          pet.
+          We offer flexible booking options to accommodate your schedule. While
+          we recommend booking at least a week in advance for the best
+          selection, we can often arrange flights with shorter notice. For
+          urgent requests, please contact our team directly.
         </p>
       ),
     },
     {
       title:
-        "How does FlexiRent ensure privacy and security for its customers?",
+        "What amenities and services are included in my private jet charter?",
       content: (
         <p>
-          We prioritize your privacy and security. Our fleet is well-maintained,
-          and all personal information is handled with the utmost care. Our
-          discreet rental process ensures that your experience remains
-          confidential from start to finish.
+          Our private jet charters come with a range of amenities, including
+          personalized catering, in-flight entertainment, and luxury seating. We
+          also provide ground transportation, concierge services, and additional
+          customization to meet your specific needs.
+        </p>
+      ),
+    },
+    {
+      title: "Can I bring pets on board my chartered jet?",
+      content: (
+        <p>
+          Yes, pets are welcome on our private jets. We understand that your
+          pets are part of the family, and we can make special arrangements to
+          ensure they travel comfortably and safely. Please inform us in advance
+          if you plan to bring pets.
+        </p>
+      ),
+    },
+    {
+      title:
+        "How does Airvoir ensure privacy and discretion for its passengers?",
+      content: (
+        <p>
+          Unlike owning a private aircraft, chartering offers a higher degree of
+          privacy as tail numbers vary with every flight you book.
+        </p>
+      ),
+    },
+    {
+      title:
+        "Do you offer international flights, and what are the customs requirements?",
+      content: (
+        <p>
+          We provide global private jet charters, flying to destinations
+          worldwide. Our team will handle all customs and immigration
+          requirements to ensure a smooth journey. Please have your passport and
+          any necessary travel documents ready, and we'll take care of the rest.
         </p>
       ),
     },
   ],
 };
 
-const styles = {
-  // bgColor: 'white',
-  titleTextColor: "black",
-  rowTitleColor: "black",
-  rowTitleTextSize: "x-large",
-  //   rowContentPaddingTop: "0px",
-  //   rowContentPaddingBottom: "20px",
-  // rowContentColor: 'grey',
-  // arrowColor: "red",
-};
-
-const config = {
-  // animate: true,
-  // arrowIcon: "V",
-  // tabFocus: true
-};
-
 export default function FAQ() {
+  const [faqStyles, setFaqStyles] = useState({
+    titleTextColor: "black",
+    rowTitleColor: "black",
+    rowTitleTextSize: "x-large",
+  });
+
+  useEffect(() => {
+    const updateStyle = () => {
+      setFaqStyles({
+        titleTextColor: "black",
+        rowTitleColor: "black",
+        rowTitleTextSize: window.innerWidth <= 479 ? "large" : "x-large",
+      });
+    };
+
+    updateStyle();
+    window.addEventListener("resize", updateStyle);
+    return () => window.removeEventListener("resize", updateStyle);
+  }, []);
+
   return (
     <Layout>
       <div>
@@ -102,7 +132,7 @@ export default function FAQ() {
         <TextSmall>Here are answers to questions our clients ask.</TextSmall>
       </div>
       <div>
-        <Faq data={data} styles={styles} config={config} />
+        <Faq data={data} styles={faqStyles} />
       </div>
     </Layout>
   );

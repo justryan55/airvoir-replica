@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  width: 100%;
 `;
 
 const FormContainer = styled.form`
@@ -13,13 +14,14 @@ const FormContainer = styled.form`
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 1.5rem;
-  width: 65%;
+  width: 100%;
 `;
 
 const FormFieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: 10px;
+  padding: 1.5rem;
 `;
 
 const Label = styled.div`

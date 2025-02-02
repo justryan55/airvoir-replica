@@ -6,7 +6,11 @@ const Layout = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
+
+  @media screen and (max-width: 979px) {
+    max-width: 90vw;
+  }
 `;
 
 const Container = styled.div`
@@ -18,6 +22,12 @@ const Container = styled.div`
   height: 30vh;
   margin-bottom: 50px;
   width: 100%;
+
+  @media screen and (max-width: 979px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 5% 0px 5%;
+  }
 `;
 
 const LeftColumn = styled.div`
@@ -41,10 +51,11 @@ const RightColumn = styled.div`
   width: 100%;
 `;
 
-const Logo = styled.h1`
-  color: black;
+const Logo = styled.img`
   margin-bottom: 0;
   padding-bottom: 0;
+  max-width: 20%;
+  display: inline-block;
 `;
 
 const SubHeader = styled.h2`
@@ -104,6 +115,10 @@ const StyledButton = styled(Button)`
 const TextSmall = styled.p`
   font-size: 0.75rem;
   width: 50%;
+
+  @media screen and (max-width: 979px) {
+    width: 90%;
+  }
 `;
 
 const RightSubContainer = styled.div`
@@ -111,6 +126,11 @@ const RightSubContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   width: 50%;
   gap: 50px;
+
+  @media screen and (max-width: 979px) {
+    grid-template-columns: 1fr;
+    width: 95%;
+  }
 `;
 
 const List = styled.div`
@@ -132,6 +152,10 @@ const Item = styled.a`
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
+
+  @media screen and (max-width: 979px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const LineDivider = styled.div`
@@ -141,8 +165,12 @@ const LineDivider = styled.div`
 `;
 
 const TextSmallV2 = styled(TextSmall)`
-  text-align: center;
-  font-weight: 600;
+  font-weight: 500;
+  padding-top: 20px;
+
+  @media screen and (max-width: 979px) {
+    width: 100%;
+  }
 `;
 
 export default function Footer() {
@@ -152,8 +180,8 @@ export default function Footer() {
         <Container>
           <LeftColumn>
             <LeftSubContainer>
-              <Logo>FlexiRent</Logo>
-              <SubHeader>The road is yours</SubHeader>
+              <Logo src="images/logo.svg" />
+              <SubHeader>The world is yours</SubHeader>
               <Form>
                 <Input
                   name="Email"
@@ -175,22 +203,23 @@ export default function Footer() {
               <List>
                 <ListHeader>Pages</ListHeader>
                 <Item>Home</Item>
-                <Item>Book a ride</Item>
+                <Item>Book a flight</Item>
                 <Item>About</Item>
                 <Item>Blog</Item>
                 <Item>Contact</Item>
               </List>
               <List>
                 <ListHeader>Socials</ListHeader>
-                <Item>Instagram</Item>
                 <Item>LinkedIn</Item>
               </List>
             </RightSubContainer>
           </RightColumn>
+          <div style={{ gridColumn: "1/3" }}>
+            <LineDivider />
+            <TextSmallV2>Copyright 2024 © Airvoir S.R.L </TextSmallV2>
+          </div>
         </Container>
       </div>
-      <LineDivider />
-      <TextSmallV2>Copyright 2024 © FlexiRent </TextSmallV2>
     </Layout>
   );
 }
