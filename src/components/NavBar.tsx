@@ -2,7 +2,11 @@ import styled from "styled-components";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
 
-const NavContainer = styled.div`
+interface NavContainerProps {
+  isOpen: boolean;
+}
+
+const NavContainer = styled.div<NavContainerProps>`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   position: relative;
   z-index: -1000;
