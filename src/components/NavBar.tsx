@@ -61,6 +61,8 @@ const LinkContainer = styled.ul`
 
   @media screen and (max-width: 979px) {
     flex-direction: column;
+    padding: 15px 0px 15px 0px;
+    margin: 0px;
   }
 `;
 
