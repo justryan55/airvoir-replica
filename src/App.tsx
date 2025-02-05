@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useRef } from "react";
 import "./App.css";
 import Home from "./views/Home";
 import Benefits from "./views/Benefits";
@@ -14,28 +15,51 @@ import CTA from "./views/CTA";
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
-
-  @media screen and (max-width: 979px) {
-    max-width: 100vw;
-  }
 `;
 
 function App() {
+  const processRef = useRef<HTMLDivElement>(null);
+  const benefitsRef = useRef<HTMLDivElement>(null);
+  const FAQsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (section: string) => {
+    if (section === "process") {
+      processRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    if (section === "benefits") {
+      benefitsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    if (section === "FAQs") {
+      FAQsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <>
-      <Layout>
-        <NavBar />
-        <Home />
+    <Layout>
+      <NavBar onScrollTo={scrollToSection} />
+
+      <Home />
+
+      <div ref={benefitsRef} id="benefits">
         <Benefits />
-        <Slider />
+      </div>
+
+      <Slider />
+
+      <div ref={processRef} id="process">
         <Steps />
-        <About />
-        <Testimonials />
+      </div>
+      <About />
+      <Testimonials />
+      <div ref={FAQsRef} id="FAQs">
         <FAQ />
-        <CTA />
-        <Footer />
-      </Layout>
-    </>
+      </div>
+
+      <CTA />
+      <Footer />
+    </Layout>
   );
 }
 

@@ -6,10 +6,13 @@ interface NavContainerProps {
   isOpen: boolean;
 }
 
+interface NavBarProps {
+  onScrollTo: (section: string) => void;
+}
+
 const NavContainer = styled.div<NavContainerProps>`
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   position: relative;
-  z-index: -1000;
   background-color: white;
   align-items: center;
   width: 100%;
@@ -30,7 +33,6 @@ const NavContainer = styled.div<NavContainerProps>`
 
 const Content = styled.div`
   display: flex;
-
   justify-content: flex-start;
   align-items: center;
   width: 100%;
@@ -61,12 +63,18 @@ const LinkContainer = styled.ul`
   }
 `;
 
-const Link = styled.li`
-  list-style-type: none;
+const NavButton = styled.button`
+  border: none;
+  background: none;
   color: var(--link-color--link-primary);
   padding: 0.5rem 1rem;
   font-weight: 500;
   cursor: pointer;
+  font-size: 1rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   @media screen and (max-width: 979px) {
     padding: 1rem;
@@ -85,7 +93,7 @@ const HamburgerMenu = styled.div`
   }
 `;
 
-export default function NavBar() {
+export default function NavBar({ onScrollTo }: NavBarProps) {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -100,9 +108,12 @@ export default function NavBar() {
             <img src="/images/logo.svg" alt="Airvoir logo" />
           </LogoContainer>
           <LinkContainer>
-            <Link onClick={() => setOpen(false)}>About us</Link>
-            <Link onClick={() => setOpen(false)}>Contact</Link>
-            <Link onClick={() => setOpen(false)}>Blog</Link>
+            <NavButton onClick={() => onScrollTo("benefits")}>
+              Benefits
+            </NavButton>
+
+            <NavButton onClick={() => onScrollTo("process")}>Process</NavButton>
+            <NavButton onClick={() => onScrollTo("FAQs")}>FAQs</NavButton>
           </LinkContainer>
         </Content>
       </NavContainer>
