@@ -99,6 +99,7 @@ const Header = styled.h1`
     font-size: 2.5rem;
     letter-spacing: -2px;
     text-align: center;
+    padding-top: 20px;
   }
 `;
 

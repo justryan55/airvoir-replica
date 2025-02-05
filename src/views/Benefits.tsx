@@ -14,7 +14,7 @@ const Layout = styled.div`
   background-color: #f4f4f5;
 
   @media screen and (max-width: 979px) {
-    margin-top: 100px;
+    margin-top: 5px;
     padding: 0;
   }
 `;
