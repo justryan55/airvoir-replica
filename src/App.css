@@ -8,8 +8,6 @@
   --background-color--background-alternateb: var(
     --base-color-neutral--neutral-darkest
   );
-  --base-color-neutral--black\<deleted\|relume-variable-color-neutral-1\>: black;
-  --base-color-neutral--white\<deleted\|relume-variable-color-neutral-2\>: white;
   --background-color--background-secondary: var(
     --base-color-neutral--neutral-lightest
   );
@@ -17,7 +15,6 @@
   --border-color--border-secondary: var(--base-color-neutral--neutral-lighter);
   --base-color-neutral--neutral-light: #a0a0ab;
   --border-color--border-accent: var(--base-color-brand--brand);
-  --black-archive\<deleted\|variable-dccb7db6\>: black;
   --link-color--link-alternate: var(--base-color-brand--white);
   --background-color--background-tertiary: var(
     --base-color-neutral--neutral-lighter
@@ -38,7 +35,6 @@
   --base-color-brand--black: #18181b;
   --base-color-neutral--neutral: #70707b;
   --base-color-neutral--neutral-dark: #51525c;
-  --base-color-neutral--neutral-darker: #3f3f46;
   --base-color-neutral--neutral-darkest: #26272b;
   --base-color-system--success-green: #027a48;
   --base-color-system--success-green-light: #ecfdf3;
