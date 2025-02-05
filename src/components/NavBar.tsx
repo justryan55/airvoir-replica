@@ -19,7 +19,6 @@ const NavContainer = styled.div<NavContainerProps>`
   height: auto;
   min-height: 4.5rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  padding-left: 10px;
 
   @media screen and (min-width: 980px) {
     display: flex;
@@ -40,9 +39,11 @@ const Content = styled.div`
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 10px;
 
   @media screen and (max-width: 979px) {
     flex-direction: column;
+    padding-left: 0px;
   }
 `;
 
