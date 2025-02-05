@@ -78,7 +78,7 @@ const NavButton = styled.button`
   }
 
   @media screen and (max-width: 979px) {
-    padding: 1rem;
+    padding: 1rem 0px 1rem 0px;
   }
 `;
 
