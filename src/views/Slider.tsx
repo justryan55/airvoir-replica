@@ -59,6 +59,7 @@ const TextLarge = styled.h1`
   line-height: 1.1;
   margin: 0;
   padding: 0;
+  text-align: center;
 
   @media screen and (max-width: 979px) {
     text-align: center;

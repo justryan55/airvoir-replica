@@ -16,6 +16,7 @@ const NavContainer = styled.div<NavContainerProps>`
   height: auto;
   min-height: 4.5rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding-left: 10px;
 
   @media screen and (min-width: 980px) {
     display: flex;
@@ -44,6 +45,7 @@ const Content = styled.div`
 `;
 
 const LogoContainer = styled.div`
+  cursor: pointer;
   @media screen and (max-width: 979px) {
     display: none;
   }
@@ -64,6 +66,7 @@ const Link = styled.li`
   color: var(--link-color--link-primary);
   padding: 0.5rem 1rem;
   font-weight: 500;
+  cursor: pointer;
 
   @media screen and (max-width: 979px) {
     padding: 1rem;

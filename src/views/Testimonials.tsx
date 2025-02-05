@@ -148,6 +148,7 @@ const LeftList = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
+  max-height: 50%;
 
   @media screen and (max-width: 979px) {
     display: none;

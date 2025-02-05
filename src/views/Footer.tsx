@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { Button } from "@mui/material";
 
 const Layout = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-
+  padding: 0px 50px 0px 50px;
   @media screen and (max-width: 979px) {
     max-width: 90vw;
   }
@@ -22,6 +23,7 @@ const Container = styled.div`
   height: 30vh;
   margin-bottom: 50px;
   width: 100%;
+  max-width: 100%;
 
   @media screen and (max-width: 979px) {
     display: flex;
@@ -152,6 +154,7 @@ const Item = styled.a`
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
 
   @media screen and (max-width: 979px) {
     font-size: 0.75rem;

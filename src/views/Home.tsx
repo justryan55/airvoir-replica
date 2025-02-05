@@ -93,6 +93,7 @@ const Header = styled.h1`
   line-height: 1;
   margin-bottom: 5px;
   padding-bottom: 0;
+  padding-left: 10px;
 
   @media screen and (max-width: 979px) {
     font-size: 2.5rem;
@@ -105,6 +106,8 @@ const Text = styled.p`
   font-size: 1.125rem;
   font-weight: 500;
   margin-bottom: 0;
+  padding-left: 10px;
+
   /* margin-top: 0; */
 
   @media screen and (max-width: 979px) {
@@ -116,8 +119,8 @@ const Text = styled.p`
 const FormContainer = styled.div`
   box-sizing: border-box;
   border-radius: 1rem;
-  width: 100%;
-  padding: 1.5rem;
+  max-width: 100%;
+  /* padding: 1.5rem; */
 
   flex-flow: column;
   justify-content: flex-start;
