@@ -78,7 +78,7 @@ const ContentContainer = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  width: 26rem;
+  width: 34rem;
   position: relative;
 
   @media screen and (max-width: 979px) {
@@ -95,11 +95,14 @@ const Header = styled.h1`
   padding-bottom: 0;
   padding-left: 10px;
 
+  width: 75%;
+
   @media screen and (max-width: 979px) {
     font-size: 2.5rem;
     letter-spacing: -2px;
     text-align: center;
     padding-top: 20px;
+    width: 100%;
   }
 `;
 
@@ -108,7 +111,6 @@ const Text = styled.p`
   font-weight: 500;
   margin-bottom: 0;
   padding-left: 10px;
-
   /* margin-top: 0; */
 
   @media screen and (max-width: 979px) {
@@ -127,6 +129,7 @@ const FormContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-end;
   display: flex;
+  margin-bottom: 100px;
 
   @media screen and (max-width: 979px) {
     justify-content: center;
@@ -180,7 +183,6 @@ const Separator = styled.div`
 `;
 
 const FormFieldWrapper = styled.div`
-  width: 100%;
   position: relative;
   margin-right: 1.7rem;
 
@@ -197,6 +199,7 @@ const Label = styled.div`
   grid-column-gap: 0.25rem;
   grid-row-gap: 0.25rem;
   display: flex;
+  margin-bottom: 10px;
 
   @media screen and (max-width: 979px) {
     margin-bottom: 5px;
@@ -356,7 +359,7 @@ export default function Home() {
                       />
                     </IsPassengers>
                   </FormFieldWrapper>
-                  <FormFieldWrapper>
+                  {/* <FormFieldWrapper>
                     <Label>Email</Label>
                     <Input
                       type="email"
@@ -373,7 +376,7 @@ export default function Home() {
                       id="phone"
                       placeholder="Mobile"
                     />
-                  </FormFieldWrapper>
+                  </FormFieldWrapper> */}
                 </Container>
                 <ButtonContainer>
                   <StyledButton variant="contained">
