@@ -121,7 +121,7 @@ export default function Slider() {
 
     const tl = gsap.timeline();
 
-    tl.fromTo(carRef.current, { x: -2000 }, { x: 2000, duration: 3 });
+    tl.fromTo(carRef.current, { x: -2000 }, { x: 2200, duration: 2 });
     tl.fromTo(
       firstTextRef.current,
       { opacity: 1 },
