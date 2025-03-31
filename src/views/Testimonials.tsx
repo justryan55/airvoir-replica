@@ -97,7 +97,7 @@ const SpacerSmall = styled.div`
 
 const Text = styled.p`
   font-size: 1.125rem;
-  margin-bottom: 0;
+  margin-bottom: 10px;
   margin-top: 0;
 
   @media screen and (max-width: 979px) {
