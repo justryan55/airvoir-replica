@@ -42,6 +42,7 @@ const Text = styled.h1`
   font-weight: 600;
   line-height: 1.1;
   will-change: transform;
+  padding-bottom: 50px;
 
   @media screen and (max-width: 979px) {
     letter-spacing: -1.5px;
@@ -71,13 +72,16 @@ const Feature = styled.div`
   padding-top: 1rem;
   display: flex;
   will-change: transform;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 25px;
 
   @media screen and (max-width: 979px) {
     justify-content: center;
-    align-items: center;
     text-align: center;
     font-size: 0.75em;
-    padding: 20px 10px 0px 10px;
+    padding: 20px 10px 15px 10px;
   }
 `;
 
@@ -95,8 +99,9 @@ export default function Benefits() {
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: "power1.out",
+          duration: 2,
+          ease: "power4.out",
+          stagger: 0.2,
           scrollTrigger: {
             trigger: feature,
             start: "bottom 10%",
