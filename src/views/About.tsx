@@ -73,8 +73,8 @@ const ButtonOne = styled.a`
   border-radius: 10rem;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
-  transition: box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-
+  transition: box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.3s ease, background-color 0.3s ease;
   border-color: #ffffff;
   background-color: #ffffff;
   color: black;
@@ -82,6 +82,9 @@ const ButtonOne = styled.a`
 
   &:hover {
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    background-color: #f0f0f0;
   }
 `;
 
@@ -91,7 +94,8 @@ const ButtonTwo = styled.a`
   border-radius: 10rem;
   padding: 0.75rem 1.5rem;
   text-decoration: none;
-  transition: box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.3s ease, background-color 0.3s ease;
 
   border-color: var(--base-color-neutral--white);
   background-color: var(--base-color-neutral--white);
@@ -100,6 +104,8 @@ const ButtonTwo = styled.a`
 
   &:hover {
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
   }
 `;
 
