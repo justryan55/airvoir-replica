@@ -140,13 +140,6 @@ const List = styled.div`
   flex-direction: column;
 `;
 
-const ListHeader = styled.h2`
-  color: var(--text-color--text-primary);
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.5;
-`;
-
 const Item = styled.a`
   color: var(--link-color--link-primary);
   padding-top: 0.5rem;
